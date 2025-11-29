@@ -9,6 +9,11 @@ services:
     - '8761:8761'
     networks:
     - 'dockernetflix-network'
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8761/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   spring-cloud-gateway-service:
     build: ./Lab3microservicioGateway
@@ -19,6 +24,9 @@ services:
     - '7000:7000'
     networks:
       - 'dockernetflix-network'
+    depends_on:
+      eureka-server:
+        condition: service_healthy
 
   greeting-microservice:
     build: ./Lab3microservicio
@@ -27,6 +35,9 @@ services:
     container_name: greet-microservice
     networks:
       - 'dockernetflix-network'
+    depends_on:
+      eureka-server:
+        condition: service_healthy
 
 networks:
   dockernetflix-network:
