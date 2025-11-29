@@ -1,3 +1,5 @@
+# Reto 09
+
 ### 1. ¿Cuáles son sus conclusiones?
 
 Se implementó exitosamente una arquitectura de microservicios utilizando el ecosistema de Spring Cloud Netflix y Docker. Pensaría en que la conclusión principal es que con esto es posible desacoplar la infraestructura de la lógica de negocio.
@@ -30,7 +32,11 @@ También, podríamos aprovechar el Gateway para gestionar el enrutamiento, la se
 
 Todo esto, usando un entorno limpio de ejecución (Docker) para que todos tengan el mismo entorno de trabajo.
 
-# TODO
+### TODO
 
 - [] Recomendación: Opino que sería bueno especificar más claramente en la guía que se trata de tres proyectos Maven independientes y no de un único proyecto raíz que gestiona todo desde el principio. Estuve intentando ejecutar 'mvn clean install' en la raíz del proyecto, pero no funcionaba, ya que debía ejecutarlo en cada proyecto individualmente. Había asumido que el proyecto raíz gestionaba todo cuando se pidió esto: "Desde el navegador eliminemos el directorio “src” del proyecto creado y lo reemplazamos
 por el generado por spring initializr.", al leer eso asumí que el proyecto creado era el que se había hecho con IntelliJ al principio, pero más adelante en la guía noté que mi estructura de carpetas no coincidía con la que se esperaba y entendí que había que separar cada proyecto, después tuve que dedicarme un rato a acomodar la estructura e instalar dependencias de nuevo.
+
+### Mi contacto
+
+- Correo: miguelciavato@gmail.com
