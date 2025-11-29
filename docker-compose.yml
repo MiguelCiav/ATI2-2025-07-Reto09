@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  eureka-server:
+    build: ./Lab3microservicioEureka
+    image: eureka #nombre de la imagen que hemos creado
+    restart: always
+    container_name: eureka
+    ports:
+    - '8761:8761'
+    networks:
+    - 'dockernetflix-network'
+
+  spring-cloud-gateway-service:
+    build: ./Lab3microservicioGateway
+    image: spring-cloud-gateway #nombre de la imagen que hemos creado
+    restart: always
+    container_name: spring-cloud-gateway
+    ports:
+    - '7000:7000'
+    networks:
+      - 'dockernetflix-network'
+
+  greeting-microservice:
+    build: ./Lab3microservicio
+    image: greet-microservice #nombre de la imagen que hemos creado
+    restart: always
+    container_name: greet-microservice
+    networks:
+      - 'dockernetflix-network'
+
+networks:
+  dockernetflix-network:
